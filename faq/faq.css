@@ -1,0 +1,90 @@
+:root{
+  --bg:#121212; --card:#1b1b1b; --muted:#bdbdbd; --text:#eaeaea;
+  --accent:#FF6B00; --mint:#00FF85;
+  --radius:14px; --shadow:0 10px 26px rgba(0,0,0,.35);
+  --logo-url:url('logo-edgemint.svg');
+}
+
+/* Base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Helvetica,Arial;
+  color:var(--text); background:var(--bg)
+}
+a{color:var(--mint); text-decoration:none}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--mint); outline-offset:2px; border-radius:8px}
+.wrap{max-width:1120px; margin:auto; padding:0 20px}
+
+/* Header */
+.header{
+  position:sticky; top:0; z-index:30; background:rgba(18,18,18,.65);
+  backdrop-filter:saturate(140%) blur(8px);
+  border-bottom:1px solid rgba(255,255,255,.06)
+}
+.nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0}
+.brand{display:flex; align-items:center; gap:12px}
+.logo{
+  width:40px; height:40px; border-radius:10px; background:
+    radial-gradient(120px 60px at 100% 0, rgba(255,107,0,.35), transparent 60%),
+    radial-gradient(120px 60px at 0 100%, rgba(0,255,133,.28), transparent 60%),
+    var(--card);
+  box-shadow:var(--shadow);
+  position:relative; overflow:hidden;
+}
+.logo::after{
+  content:""; position:absolute; inset:0; background-image:var(--logo-url);
+  background-size:contain; background-position:center; background-repeat:no-repeat; opacity:.95;
+}
+.navlinks{display:flex; gap:18px; align-items:center}
+.navlinks a{color:var(--text); opacity:.9}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  background:linear-gradient(135deg,var(--mint),#54ffb4); color:#111; font-weight:700;
+  padding:12px 18px; border-radius:12px; border:0; cursor:pointer; transition:transform .15s ease
+}
+.btn:hover{transform:translateY(-1px)}
+
+/* Hero */
+.hero{
+  padding:88px 0 36px; background:
+    radial-gradient(800px 320px at -10% -10%, rgba(255,107,0,.18), transparent 60%),
+    radial-gradient(900px 360px at 110% 120%, rgba(0,255,133,.12), transparent 60%);
+  border-bottom:1px solid rgba(255,255,255,.06)
+}
+.kicker{color:var(--mint); font-weight:800; letter-spacing:.08em; text-transform:uppercase; margin:0 0 12px}
+.claim{font-size:40px; line-height:1.12; margin:0 0 10px}
+.sub{color:var(--muted); margin:0}
+
+/* FAQ */
+section{padding:56px 0}
+.faq{display:grid; gap:12px}
+details.card{
+  background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.10); border-radius:var(--radius); padding:14px 16px; box-shadow:var(--shadow)
+}
+summary{
+  cursor:pointer; list-style:none; outline:none; font-weight:700; display:flex; align-items:center; gap:10px
+}
+summary::-webkit-details-marker{display:none}
+summary::before{
+  content:"+"; display:inline-flex; align-items:center; justify-content:center;
+  width:22px; height:22px; border-radius:50%; color:#111;
+  background:linear-gradient(135deg,var(--accent),#ff8b33); font-weight:900; flex:0 0 22px
+}
+details[open] summary::before{content:"–"}
+details p{margin:10px 0 0; color:var(--text)}
+details p + p{margin-top:8px}
+details strong{color:var(--mint)}
+
+/* Footer */
+footer{padding:32px 0; color:var(--muted); font-size:14px; border-top:1px solid rgba(255,255,255,.06)}
+.foot{display:flex; gap:10px; justify-content:space-between; align-items:center; flex-wrap:wrap}
+
+/* Responsive */
+@media (max-width: 960px){
+  .wrap{padding:0 16px}
+}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none !important; animation:none !important}
+}
