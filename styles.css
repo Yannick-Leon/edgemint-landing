@@ -2,19 +2,25 @@
   --bg:#121212; --card:#1a1a1a; --muted:#bdbdbd; --text:#eaeaea;
   --accent:#FF6B00; --mint:#00FF85;
   --radius:14px; --shadow:0 12px 28px rgba(0,0,0,.35);
-  --logo-url:url('logo-edgemint.png'); /* dein Logo-Dateipfad */
+  --logo-url:url('logo-edgemint.svg'); /* passe Pfad ggf. an */
 }
+
+/* Base */
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
   margin:0; font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Helvetica,Arial;
-  color:var(--text); background:var(--bg)
+  color:var(--text); background:var(--bg);
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
 }
 a{color:var(--mint); text-decoration:none}
-a:focus-visible,button:focus-visible{outline:2px solid var(--mint); outline-offset:2px; border-radius:8px}
+a:hover{opacity:.9}
+a:focus-visible,button:focus-visible,summary:focus-visible,details:focus-visible{
+  outline:2px solid var(--mint); outline-offset:2px; border-radius:8px;
+}
 .wrap{max-width:1120px; margin:auto; padding:0 20px}
 
-/* Header */
+/* Header / Nav */
 .header{
   position:sticky; top:0; z-index:30; background:rgba(18,18,18,.65);
   backdrop-filter:saturate(140%) blur(8px);
@@ -34,7 +40,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mint); outline-offs
   content:""; position:absolute; inset:0; background-image:var(--logo-url);
   background-size:contain; background-position:center; background-repeat:no-repeat; opacity:.95;
 }
-.navlinks{display:flex; gap:18px; align-items:center}
+.navlinks{display:flex; gap:18px; align-items:center; flex-wrap:wrap}
 .navlinks a{color:var(--text); opacity:.9}
 .btn{
   display:inline-flex; align-items:center; justify-content:center; gap:10px;
@@ -46,9 +52,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mint); outline-offs
 .btn--mint{background:linear-gradient(135deg,var(--mint),#54ffb4)}
 .btn--disabled{background:#2a2a2a; color:#9a9a9a; cursor:not-allowed; border:1px dashed #3a3a3a}
 
-/* Hero */
+/* Hero (auch für Unterseiten) */
 .hero{
-  padding:88px 0 36px; background:
+  padding:88px 0 40px; background:
     radial-gradient(800px 320px at -10% -10%, rgba(255,107,0,.18), transparent 60%),
     radial-gradient(900px 360px at 110% 120%, rgba(0,255,133,.12), transparent 60%);
   border-bottom:1px solid rgba(255,255,255,.06)
@@ -58,40 +64,90 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mint); outline-offs
 .claim{font-size:40px; line-height:1.12; margin:0 0 16px; opacity:0; transform:translateY(10px); transition:opacity .45s ease, transform .45s ease}
 .claim.revealed{opacity:1; transform:none}
 .sub{color:var(--muted); margin:0 0 22px}
-.cta-row{display:flex; gap:10px; flex-wrap:wrap}
+
+/* Layout Sections */
+section{padding:56px 0}
+.section-title{font-size:28px; margin:0 0 12px}
+.muted{color:var(--muted)}
 .card{
   background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
   border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)
 }
-
-/* Sections */
-section{padding:56px 0}
-.section-title{font-size:28px; margin:0 0 12px}
-.muted{color:var(--muted)}
 .cols{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
 .cols-2{display:grid; grid-template-columns:1fr 1fr; gap:16px}
 
-/* USP */
-.usp .card h3{margin:0 0 6px}
-.usp .card p{margin:0}
-
-/* Pricing */
+/* USP / Pricing (Landing) */
+.cta-row{display:flex; gap:10px; flex-wrap:wrap}
 .pricing{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
 .price{font-size:30px; margin:8px 0}
 .per{color:var(--muted)}
-
-/* Teaser */
 .teaser{display:flex; flex-direction:column; gap:10px; margin-top:14px}
 .note{font-size:14px; color:var(--muted)}
+
+/* STORY page polish */
+.story-lead{
+  font-size:18px; color:var(--muted); margin:0 0 12px;
+}
+.prose{
+  display:grid; gap:18px;
+}
+.prose p{margin:0}
+.quote{
+  border-left:4px solid var(--mint); padding-left:12px; color:#d8ffe9;
+  background:rgba(0,255,133,.06); border-radius:6px;
+}
+.story-grid{
+  display:grid; grid-template-columns:2fr 1fr; gap:18px;
+}
+.story-aside .badge{
+  display:inline-block; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:800; color:#111;
+  background:var(--mint); margin-right:6px;
+}
+.story-aside .list{margin:10px 0 0; padding-left:18px}
+.story-aside .list li{margin:6px 0}
+
+/* BLOG page polish */
+.posts{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+}
+.post{
+  position:relative; overflow:hidden;
+  transition:transform .15s ease, box-shadow .2s ease;
+}
+.post:hover{ transform:translateY(-2px); box-shadow:0 16px 36px rgba(0,0,0,.45) }
+.post h3{margin:0 0 6px}
+.post .meta{font-size:12px; color:var(--muted); margin-top:6px}
+.post .tag{
+  display:inline-block; padding:4px 8px; border-radius:999px; font-size:11px; font-weight:800; color:#111; background:var(--accent);
+}
+
+/* FAQ page polish */
+.faq{display:grid; gap:12px}
+.faq details{
+  border:1px solid rgba(255,255,255,.12); background:var(--card); border-radius:12px; padding:12px;
+  transition:border-color .15s ease, background .15s ease;
+}
+.faq details[open]{border-color:rgba(0,255,133,.35); background:linear-gradient(180deg, rgba(0,255,133,.05), rgba(255,255,255,.02))}
+.faq summary{cursor:pointer; font-weight:700; list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq p{margin:8px 0 0}
 
 /* Footer */
 footer{padding:32px 0; color:var(--muted); font-size:14px; border-top:1px solid rgba(255,255,255,.06)}
 .foot{display:flex; gap:10px; justify-content:space-between; align-items:center; flex-wrap:wrap}
 
 /* Responsive */
+@media (max-width: 1024px){
+  .posts{grid-template-columns:repeat(2,1fr)}
+}
 @media (max-width: 960px){
   .hero-grid{grid-template-columns:1fr}
   .cols, .pricing, .cols-2{grid-template-columns:1fr}
+  .story-grid{grid-template-columns:1fr}
+}
+@media (max-width: 560px){
+  .posts{grid-template-columns:1fr}
+  .claim{font-size:32px}
 }
 @media (prefers-reduced-motion: reduce){
   *{transition:none !important; animation:none !important}
