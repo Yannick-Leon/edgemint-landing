@@ -1,33 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EdgeMint – Arbitrage für alle</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background:#121212; color:#eee; }
-    header { background:#1c1c1c; padding:20px; text-align:center; }
-    h1 { color:#FF6B00; }
-    .btn { background:#00FF85; color:#000; padding:12px 24px; border:none; border-radius:6px; cursor:pointer; }
-    .btn:disabled { background:#555; color:#aaa; }
-    section { padding:40px; max-width:600px; margin:auto; text-align:center; }
-    input, button { padding:10px; margin:8px; }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EdgeMint – Arbitrage so einfach wie Toasten</title>
+  <meta name="description" content="EdgeMint macht Krypto-Arbitrage frech & smart: sicher, transparent und ohne unrealistische Versprechen.">
+  <meta property="og:title" content="EdgeMint – Arbitrage so einfach wie Toasten">
+  <meta property="og:description" content="Frech & smart. Sicher & transparent.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <h1>EdgeMint</h1>
-    <p>Arbitrage so einfach, dass sogar dein Toaster mitverdienen könnte.</p>
-  </header>
+<header class="header">
+  <div class="wrap nav">
+    <div class="brand">
+      <div class="logo" aria-hidden="true"></div>
+      <strong>EdgeMint</strong>
+    </div>
+    <nav class="navlinks" aria-label="Hauptnavigation">
+      <a href="#features">Features</a>
+      <a href="#pricing">Preise</a>
+      <a href="#trust">Sicherheit</a>
+      <a href="#story">Story</a>
+      <button class="btn btn--mint" data-scroll="#waitlist">Benachrichtige mich</button>
+    </nav>
+  </div>
+</header>
 
-  <section>
-    <h2>Bald verfügbar 🚀</h2>
-    <p>Trag dich ein und erfahre als Erster vom Start.</p>
-    <form action="https://formspree.io/f/DEIN_FORM_ID" method="POST">
-      <input type="text" name="name" placeholder="Dein Name" required>
-      <input type="email" name="email" placeholder="Deine E-Mail" required>
-      <button type="submit" class="btn">Warteliste beitreten</button>
-    </form>
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker">Arbitrage, aber ohne Bullshit</div>
+        <h1 class="claim" id="claim">„Wir machen Arbitrage so einfach, dass sogar dein Toaster mitverdienen könnte.“</h1>
+        <p class="sub">Frech & smart. Sicher & transparent. EdgeMint ist dein Plug-&-Play-Shortcut zu Krypto-Arbitrage – ohne unrealistische Versprechen.</p>
+        <div class="cta-row">
+          <button class="btn btn--disabled" aria-disabled="true" title="Bald verfügbar">Jetzt verdienen</button>
+          <button class="btn btn--disabled" aria-disabled="true" title="Bald verfügbar">Beta-Tester werden</button>
+          <button class="btn btn--mint" data-scroll="#waitlist">Mich benachrichtigen</button>
+        </div>
+        <div class="teaser">
+          <small class="note">🚧 EdgeMint ist noch nicht live. Trage dich ein, um als Erster informiert zu werden – ganz ohne Spam.</small>
+        </div>
+      </div>
+      <aside class="card" aria-label="Live-Scanner (Demo)">
+        <h3 style="margin:0 0 6px">Live-Scanner (Beispiel)</h3>
+        <p class="muted" style="margin:0 0 12px">Preis-Spreads zwischen Börsen – in Echtzeit erkannt.</p>
+        <ul style="margin:0 0 12px; padding-left:18px">
+          <li>BTC/USDT – Binance 40.000 € ↔ Kraken 40.250 € → <strong>+0,62 %</strong></li>
+          <li>ETH/USDT – Coinbase 2.350 € ↔ Binance 2.340 € → <strong>+0,42 %</strong></li>
+          <li>ADA/USDT – Binance 0,380 € ↔ OKX 0,379 € → <strong>+0,26 %</strong></li>
+        </ul>
+        <small class="muted">Hinweis: Demo-Werte. Keine Zusage, keine Finanzberatung.</small>
+      </aside>
+    </div>
   </section>
+
+  <!-- USP -->
+  <section id="features">
+    <div class="wrap">
+      <h2 class="section-title">Warum EdgeMint?</h2>
+      <p class="muted">Schnell startklar, sicher angebunden, gnadenlos ehrlich.</p>
+      <div class="cols usp">
+        <div class="card">
+          <h3>Plug & Play</h3>
+          <p>In Minuten startklar. API-Keys rein, Profil wählen, loslegen.</p>
+        </div>
+        <div class="card">
+          <h3>Transparent</h3>
+          <p>Keine Luftschlösser. Klare Reports, klare Risiken, klare Zahlen.</p>
+        </div>
+        <div class="card">
+          <h3>Sicher</h3>
+          <p>Lokale Ausführung (später mit EdgeMint-Pi), verschlüsselte Verbindungen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing (ausgraut) -->
+  <section id="pricing">
+    <div class="wrap">
+      <h2 class="section-title">Preise & Pläne</h2>
+      <p class="muted">Freemium für den Einstieg – Pro & Expert für mehr Power. Bald verfügbar.</p>
+      <div class="pricing">
+        <div class="card">
+          <h3>Free</h3>
+          <p class="muted">Triangular Arbitrage</p>
+          <div class="price">0 € <span class="per">/Monat</span></div>
+          <button class="btn btn--disabled" aria-disabled="true">Bald verfügbar</button>
+        </div>
+        <div class="card">
+          <h3>Pro</h3>
+          <p class="muted">+ Spatial Arbitrage</p>
+          <div class="price">19,99 € <span class="per">/Monat</span></div>
+          <button class="btn btn--disabled" aria-disabled="true">Bald verfügbar</button>
+        </div>
+        <div class="card">
+          <h3>Expert</h3>
+          <p class="muted">Alle 4 Strategien</p>
+          <div class="price">49,99 € <span class="per">/Monat</span></div>
+          <button class="btn btn--disabled" aria-disabled="true">Bald verfügbar</button>
+        </div>
+      </div>
+
+      <div class="card" id="waitlist" style="margin-top:18px">
+        <h3 style="margin:0 0 8px">Warteliste</h3>
+        <p class="muted" style="margin:0 0 10px">EdgeMint kommt bald. Lass dich benachrichtigen, sobald’s losgeht.</p>
+        <!-- Platzhalter (später Formular einfügen) -->
+        <div class="teaser">
+          <button class="btn btn--mint" title="Formular folgt">Benachrichtige mich zum Launch</button>
+          <small class="note">Wir speichern noch keine Daten. Das Formular wird später aktiviert.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust & Story -->
+  <section id="trust">
+    <div class="wrap cols-2">
+      <div class="card">
+        <h3>In der Krypto-Szene gibt es viele Scammer. Wir sind anders.</h3>
+        <p class="muted">Keine falschen Versprechen. Kein Bullshit. 100 % Transparenz.</p>
+        <ul>
+          <li>Keine unrealistischen Prognosen – nur echte Preisunterschiede</li>
+          <li>EdgeMint bezahlt sich aus Gewinnen (Pay-from-Profit-Modell)</li>
+          <li>Später: Gerät zum Selbstkostenpreis statt überteuerter „Wunderboxen“</li>
+        </ul>
+      </div>
+      <div class="card" id="story">
+        <h3>Vom Scam-Opfer zum Gründer</h3>
+        <p>Ich habe 50.000 € durch einen legit aussehenden Scam verloren. Daraus wurde eine Mission: Arbitrage für alle – sicher, verständlich, ehrlich.</p>
+        <button class="btn btn--ghost">Meine Geschichte lesen</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>© <span id="year"></span> EdgeMint</div>
+    <div>
+      <a href="#">Impressum</a> · <a href="#">Datenschutz</a> · <a href="#">AGB</a>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
 </body>
 </html>
